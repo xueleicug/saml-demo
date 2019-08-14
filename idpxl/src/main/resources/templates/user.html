@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
+</head>
+<section class="user-container">
+    <section class="attributes">
+        <h1>Mujina Identity Provider</h1>
+        <a class="button" th:href="@{/logout}">Logout</a>
+        <p>The following information is stored in your authentication</p>
+        <ul>
+            <li>Name</li>
+            <li th:text="${user.name}"></li>
+        </ul>
+        <ul>
+            <li>Email</li>
+            <li th:text="${user.email}"></li>
+        </ul>
+        <ul>
+            <li>Phone</li>
+            <li th:text="${user.phone}"></li>
+        </ul>
+        <ul>
+            <li>Title</li>
+            <li th:text="${user.title}"></li>
+        </ul>
+    </section>
+    <a class="powered-by" href="https://openconext.org/" target="_blank">Copyright © 2018 OpenConext</a>
+</section>
+</html>

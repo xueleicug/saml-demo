@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: IdentityProvider
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/saml?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: xuelei
+    password: xuelei
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: false
+    generate-ddl: true
+
+server:
+  port: 8999

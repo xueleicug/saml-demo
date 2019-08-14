@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    	
+	<springProperty scope="context" name="springAppName" source="spring.application.name"/>
+	
+    <property name="LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${level:-%5p}) %clr([${springAppName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-},%X{X-APP_VERSION:-}]){yellow} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+    <!-- 定义日志文件 输入位置 -->
+	<property name="LOG_PATH" value="${LOG_PATH:-/var/log/samlTest}" />
+    
+    <appender name="DEBUG_LEVEL_REMAPPER" class="org.springframework.boot.logging.logback.LevelRemappingAppender">
+        <destinationLogger>org.springframework.boot</destinationLogger>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/sp.log</fileNamePattern>
+		</rollingPolicy>
+    </appender>
+    
+    <logger name="org.springframework" level="WARN" />
+	<logger name="org.hibernate" level="WARN" />
+	<logger name="httpclient.wire" level="WARN" />
+	<logger name="o.s" level="WARN" />
+	<logger name="org.spring" level="WARN" />
+	<logger name="org.jboss" level="WARN" />
+	<logger name="druid.sql" level="WARN" />
+	<logger name="com.netflix" level="WARN" />
+	<logger name="org.apache" level="WARN" />
+	<logger name="org.springframework.boot" level="WARN" />
+	<logger name="com.alibaba" level="WARN" />
+	<logger name="net.sf" level="WARN" />
+	<logger name="ch.qos.logback" level="WARN" />
+	<logger name="cn.com.paic.pacloud.framework.schedule" level="WARN" />
+	<logger name="org.redisson.cluster" level="WARN" />
+  <logger name="ch.qos.logback.classic.jul" level="WARN" />
+  <logger name="c.p.p.i" level="WARN" />
+  <logger name="cn.com.paic.pacloud.i18n" level="WARN" />
+  <logger name="o.r.connection" level="WARN" />
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ServiceProvider
+  datasource:
+    url: jdbc:mysql://192.168.2.10:3306/saml?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: xuelei
+    password: xuelei01
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: false
+    generate-ddl: true
+
+sp:
+  responseUrl: http://127.0.0.1:8080/api/v1
+  loginConsumer: http://127.0.0.1:9999/sp/consumer/single/logout
+  entityId: xuelei.mocksp
+
+server:
+  port: 9999
+
