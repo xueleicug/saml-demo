@@ -2,8 +2,8 @@ spring:
   application:
     name: IdentityProvider
   datasource:
-    url: jdbc:mysql://119.147.81.3:3306/saml?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
-    username: xuelei
+    url: jdbc:mysql://127.0.0.1:3306/saml?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
     password: xuelei01
     driver-class-name: com.mysql.jdbc.Driver
   jpa:

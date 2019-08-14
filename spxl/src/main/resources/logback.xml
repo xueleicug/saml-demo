@@ -9,7 +9,7 @@
     <property name="LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${level:-%5p}) %clr([${springAppName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-},%X{X-APP_VERSION:-}]){yellow} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
     <!-- 定义日志文件 输入位置 -->
-	<property name="LOG_PATH" value="${LOG_PATH:-/var/log/samlTest}" />
+	<property name="LOG_PATH" value="${LOG_PATH:-/var/log/saml}" />
     
     <appender name="DEBUG_LEVEL_REMAPPER" class="org.springframework.boot.logging.logback.LevelRemappingAppender">
         <destinationLogger>org.springframework.boot</destinationLogger>
